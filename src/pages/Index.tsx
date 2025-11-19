@@ -11,7 +11,7 @@ import moroccanCulture from "@/assets/moroccan-culture.jpg";
 
 const Index = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/212600000000?text=Hello, I'm interested in your tours!", "_blank");
+    window.open("https://wa.me/212606844910?text=Hello, I'm interested in your tours!", "_blank");
   };
 
   const featuredTours = [

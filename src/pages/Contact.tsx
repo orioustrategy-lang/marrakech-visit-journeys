@@ -17,7 +17,7 @@ const Contact = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/212600000000?text=Hello, I have a question about your tours!", "_blank");
+    window.open("https://wa.me/212606844910?text=Hello, I have a question about your tours!", "_blank");
   };
 
   return (
@@ -45,14 +45,15 @@ const Contact = () => {
                       <Phone className="h-5 w-5 text-primary mt-1" />
                       <div>
                         <p className="font-medium">Phone</p>
-                        <p className="text-muted-foreground">+212 600 000 000</p>
+                        <p className="text-muted-foreground">+212 606 844 910</p>
+                        <p className="text-muted-foreground">+212 637 988 023</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Mail className="h-5 w-5 text-primary mt-1" />
                       <div>
                         <p className="font-medium">Email</p>
-                        <p className="text-muted-foreground">info@marrakechvisit.com</p>
+                        <p className="text-muted-foreground">marrakechdiscover11@gmail.com</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
