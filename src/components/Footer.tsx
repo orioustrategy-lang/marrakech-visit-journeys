@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <MapPin className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">Marrakech Visit</span>
+              <span className="text-xl font-bold">Marrakech Discover</span>
             </div>
             <p className="text-muted-foreground mb-4">
               Your trusted local partner for unforgettable experiences in Marrakech and beyond.
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; {currentYear} Marrakech Visit. All rights reserved.</p>
+          <p>&copy; {currentYear} Marrakech Discover. All rights reserved.</p>
         </div>
       </div>
     </footer>

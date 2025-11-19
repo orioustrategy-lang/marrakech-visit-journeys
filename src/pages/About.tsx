@@ -31,7 +31,7 @@ const About = () => {
       {/* Header */}
       <section className="bg-gradient-to-r from-primary via-desert to-gold text-white py-16">
         <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Marrakech Visit</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Marrakech Discover</h1>
           <p className="text-xl opacity-90">
             Your trusted local partner for authentic Moroccan experiences
           </p>
@@ -46,7 +46,7 @@ const About = () => {
               <h2 className="text-4xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  Marrakech Visit was founded by a group of passionate locals who wanted to share 
+                  Marrakech Discover was founded by a group of passionate locals who wanted to share 
                   the magic of Morocco with the world. Growing up in Marrakech, we witnessed the 
                   incredible beauty, rich history, and warm hospitality that makes our city so special.
                 </p>

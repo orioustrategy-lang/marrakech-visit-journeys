@@ -147,7 +147,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
-              <h2 className="text-4xl font-bold mb-6">Welcome to Marrakech Visit</h2>
+              <h2 className="text-4xl font-bold mb-6">Welcome to Marrakech Discover</h2>
               <p className="text-lg text-muted-foreground mb-6">
                 We are a passionate local Moroccan team dedicated to sharing the hidden gems and 
                 rich culture of our beloved Marrakech. With years of experience and deep local 
@@ -238,7 +238,7 @@ const Index = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Why Choose Marrakech Visit</h2>
+            <h2 className="text-4xl font-bold mb-4">Why Choose Marrakech Discover</h2>
             <p className="text-xl text-muted-foreground">
               Your trusted partner for unforgettable Moroccan experiences
             </p>
