@@ -17,7 +17,7 @@ const Contact = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/212606844910?text=Hello, I have a question about your tours!", "_blank");
+    window.open("https://wa.me/212637988023?text=Hello, I have a question about your tours!", "_blank");
   };
 
   return (

@@ -3,61 +3,75 @@ import { Button } from "@/components/ui/button";
 import { Phone, Star, CheckCircle, Users, Shield, Clock, Award } from "lucide-react";
 import TourCard from "@/components/TourCard";
 import heroImage from "@/assets/hero-desert.jpg";
-import marrakechCity from "@/assets/marrakech-city.jpg";
-import atlasMountains from "@/assets/atlas-mountains.jpg";
-import agafayDesert from "@/assets/agafay-desert.jpg";
-import ourikaValley from "@/assets/ourika-valley.jpg";
-import moroccanCulture from "@/assets/moroccan-culture.jpg";
+import youssefGuide from "@/assets/youssef-guide.jpg";
+
+// Cooking Workshop
+import cookingImg1 from "@/assets/Experiences/Depuis Marrakech  atelier culinaire et excursion d'une journée dans l'Atlas/012ab7a7cbfa9ca66f338c441c8f65ecd8a2e50191e4ed8212601aca6e28f802.avif";
+
+// Agafay Sunset
+import agafaySunsetImg1 from "@/assets/Experiences/Marrakech  Coucher de soleil dans le désert d'Agafay, balade à dos de chameau et dîner-spectacle/1861442009a86767d47645175c487c0f7863ddb904760dadbef03890f07fcd0.avif";
+
+// Agafay Desert Dinner
+import agafayDinnerImg1 from "@/assets/Experiences/Marrakech Agafay Desert Dinner Show, Camel Ride, 1 Quad/40c668de93f5ba133dd0788af8e7d6fc0a62d2083dcee7b5b23a20a34e1ac231.avif";
+
+// Paragliding
+import paraglidingImg1 from "@/assets/Experiences/Marrakech Paragliding over Agafay Desert & Atlas Mnt Views/28fb20d9691b341dd9495acef7ca084d6543a1de8925e841630134e90fc4fe8f.avif";
+
+// Airport Transfer
+import airportImg1 from "@/assets/Experiences/Marrakech Private One Way tofrom Marrakech Airport/494926692d21999f77adced882342d586e04432066fd6210a555f93ae556a2fb.avif";
+
+// Zip-Line
+import ziplineImg1 from "@/assets/Experiences/Marrakech Zip-Line in the Atlas Mountains & Berber villages/5566e9157d95c740a63efb23ee5670f791c7bfece3434a570871a4a51d06d71f.avif";
 
 const Index = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/212606844910?text=Hello, I'm interested in your tours!", "_blank");
+    window.open("https://wa.me/212637988023?text=Hello, I'm interested in your tours!", "_blank");
   };
 
   const featuredTours = [
     {
-      id: "marrakech-city-tour",
-      title: "Marrakech City Tour",
-      image: marrakechCity,
-      duration: "Full Day",
+      id: "cooking-workshop-atlas",
+      title: "Depuis Marrakech : atelier culinaire et excursion d'une journée dans l'Atlas",
+      image: cookingImg1,
+      duration: "7 hours",
       groupSize: "2-15 people",
-      price: "From €35",
-      rating: 4.9,
-      reviews: 342,
-      description: "Explore the vibrant souks, historic palaces, and iconic Jemaa el-Fnaa square.",
-    },
-    {
-      id: "atlas-mountains",
-      title: "Atlas Mountains & Berber Villages",
-      image: atlasMountains,
-      duration: "Full Day",
-      groupSize: "2-12 people",
       price: "From €45",
-      rating: 4.8,
-      reviews: 267,
-      description: "Discover stunning mountain landscapes and authentic Berber culture.",
+      rating: 4.9,
+      reviews: 320,
+      description: "Discover Moroccan flavors with a hands-on cooking class in the Atlas Mountains. Learn traditional Berber dishes with fresh local ingredients.",
     },
     {
-      id: "agafay-desert",
-      title: "Agafay Desert Sunset Experience",
-      image: agafayDesert,
+      id: "agafay-sunset-camel-dinner",
+      title: "Marrakech : Coucher de soleil dans le désert d'Agafay, balade à dos de chameau et dîner-spectacle",
+      image: agafaySunsetImg1,
       duration: "Half Day",
       groupSize: "2-20 people",
       price: "From €55",
-      rating: 5.0,
-      reviews: 428,
-      description: "Enjoy a magical sunset with camel ride and traditional Moroccan dinner.",
+      rating: 4.8,
+      reviews: 450,
+      description: "Enjoy a magical sunset with camel ride and traditional Moroccan dinner show in the stunning Agafay desert.",
     },
     {
-      id: "ourika-valley",
-      title: "Ourika Valley Day Trip",
-      image: ourikaValley,
-      duration: "Full Day",
-      groupSize: "2-15 people",
-      price: "From €40",
-      rating: 4.7,
-      reviews: 198,
-      description: "Experience lush green valleys, waterfalls, and traditional Berber hospitality.",
+      id: "agafay-dinner-quad",
+      title: "Marrakech Agafay Desert Dinner Show, Camel Ride, 1 Quad",
+      image: agafayDinnerImg1,
+      duration: "Half Day",
+      groupSize: "2-20 people",
+      price: "From €65",
+      rating: 4.9,
+      reviews: 380,
+      description: "Experience the ultimate Agafay adventure with quad biking, camel ride, and dinner show under the stars.",
+    },
+    {
+      id: "paragliding-agafay",
+      title: "Marrakech Paragliding over Agafay Desert & Atlas Mnt Views",
+      image: paraglidingImg1,
+      duration: "3-4 hours",
+      groupSize: "1-8 people",
+      price: "From €95",
+      rating: 5.0,
+      reviews: 215,
+      description: "Soar above the stunning Agafay Desert and enjoy breathtaking views of the Atlas Mountains on this unforgettable paragliding experience.",
     },
   ];
 
@@ -147,25 +161,30 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
-              <h2 className="text-4xl font-bold mb-6">Welcome to Marrakech Discover</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                We are a passionate local Moroccan team dedicated to sharing the hidden gems and 
-                rich culture of our beloved Marrakech. With years of experience and deep local 
-                knowledge, we create authentic, unforgettable experiences for travelers from around 
-                the world.
+              <h2 className="text-4xl font-bold mb-6">Welcome to Morocco</h2>
+              <p className="text-lg text-muted-foreground mb-4">
+                My name is <strong>Youssef Bourahmoun</strong>, a licensed and certified tour guide based in Marrakech. With over six years of distinguished experience, I specialize in delivering refined, seamlessly organized, and culturally immersive guidance for travelers seeking to explore the true essence of Morocco.
               </p>
-              <p className="text-lg text-muted-foreground mb-8">
-                From the bustling souks of the medina to the serene beauty of the Sahara Desert, 
-                we'll guide you through the very best that Morocco has to offer.
+              <p className="text-lg text-muted-foreground mb-4">
+                Born and raised in a Berber village in the Atlas Mountains, I bring an exceptional depth of cultural insight and authentic understanding of Morocco's heritage, traditions, and landscapes. This background allows me to curate journeys that are meaningful, genuine, and thoughtfully crafted.
+              </p>
+              <p className="text-lg text-muted-foreground mb-4">
+                Supported by a dedicated and professional team, I uphold the highest standards of service, discretion, and reliability from the moment of inquiry to the completion of each personalized journey.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                At <strong>Marrakech Discover</strong>, our commitment is to provide an elevated, memorable, and truly exceptional travel experience.
+              </p>
+              <p className="text-lg font-semibold text-primary mb-8">
+                Thank you for choosing Morocco. Your discovery begins here.
               </p>
               <Link to="/about">
                 <Button variant="outline" size="lg">Learn More About Us</Button>
               </Link>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden">
+            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl">
               <img
-                src={moroccanCulture}
-                alt="Moroccan Culture"
+                src={youssefGuide}
+                alt="Youssef Bourahmoun - Your Marrakech Guide"
                 className="w-full h-full object-cover"
               />
             </div>

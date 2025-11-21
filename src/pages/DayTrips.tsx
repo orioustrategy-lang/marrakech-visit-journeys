@@ -1,76 +1,76 @@
 import TourCard from "@/components/TourCard";
-import ourikaValley from "@/assets/ourika-valley.jpg";
-import atlasMountains from "@/assets/atlas-mountains.jpg";
-import agafayDesert from "@/assets/agafay-desert.jpg";
-import marrakechCity from "@/assets/marrakech-city.jpg";
+
+// Cooking Workshop
+import cookingImg1 from "@/assets/Experiences/Depuis Marrakech  atelier culinaire et excursion d'une journée dans l'Atlas/012ab7a7cbfa9ca66f338c441c8f65ecd8a2e50191e4ed8212601aca6e28f802.avif";
+
+// Agafay Sunset
+import agafaySunsetImg1 from "@/assets/Experiences/Marrakech  Coucher de soleil dans le désert d'Agafay, balade à dos de chameau et dîner-spectacle/1861442009a86767d47645175c487c0f7863ddb904760dadbef03890f07fcd0.avif";
+
+// Agafay Desert Dinner
+import agafayDinnerImg1 from "@/assets/Experiences/Marrakech Agafay Desert Dinner Show, Camel Ride, 1 Quad/40c668de93f5ba133dd0788af8e7d6fc0a62d2083dcee7b5b23a20a34e1ac231.avif";
+
+// Paragliding
+import paraglidingImg1 from "@/assets/Experiences/Marrakech Paragliding over Agafay Desert & Atlas Mnt Views/28fb20d9691b341dd9495acef7ca084d6543a1de8925e841630134e90fc4fe8f.avif";
+
+// Zip-Line
+import ziplineImg1 from "@/assets/Experiences/Marrakech Zip-Line in the Atlas Mountains & Berber villages/5566e9157d95c740a63efb23ee5670f791c7bfece3434a570871a4a51d06d71f.avif";
 
 const DayTrips = () => {
   const dayTrips = [
     {
-      id: "ourika-valley",
-      title: "Ourika Valley Day Trip",
-      image: ourikaValley,
-      duration: "Full Day",
+      id: "cooking-workshop-atlas",
+      title: "Depuis Marrakech : atelier culinaire et excursion d'une journée dans l'Atlas",
+      image: cookingImg1,
+      duration: "7 hours",
       groupSize: "2-15 people",
-      price: "From €40",
-      rating: 4.7,
-      reviews: 198,
-      description: "Experience lush green valleys, waterfalls, and traditional Berber hospitality in the Atlas foothills.",
-    },
-    {
-      id: "atlas-mountains",
-      title: "Atlas Mountains & Berber Villages",
-      image: atlasMountains,
-      duration: "Full Day",
-      groupSize: "2-12 people",
       price: "From €45",
-      rating: 4.8,
-      reviews: 267,
-      description: "Discover stunning mountain landscapes and authentic Berber culture in traditional villages.",
+      rating: 4.9,
+      reviews: 320,
+      description: "Discover Moroccan flavors with a hands-on cooking class in the Atlas Mountains. Learn to prepare traditional Berber dishes with fresh local ingredients.",
     },
     {
-      id: "agafay-desert-day",
-      title: "Agafay Desert Day Experience",
-      image: agafayDesert,
-      duration: "Full Day",
+      id: "agafay-sunset-camel-dinner",
+      title: "Marrakech : Coucher de soleil dans le désert d'Agafay, balade à dos de chameau et dîner-spectacle",
+      image: agafaySunsetImg1,
+      duration: "Half Day",
       groupSize: "2-20 people",
-      price: "From €50",
-      rating: 4.9,
-      reviews: 341,
-      description: "Explore the rocky Agafay desert with camel riding, lunch, and panoramic views.",
-    },
-    {
-      id: "essaouira",
-      title: "Essaouira Coastal Town",
-      image: marrakechCity,
-      duration: "Full Day",
-      groupSize: "2-15 people",
-      price: "From €45",
-      rating: 4.6,
-      reviews: 213,
-      description: "Visit the charming coastal town of Essaouira with its historic medina and Atlantic beaches.",
-    },
-    {
-      id: "ouzoud-waterfalls",
-      title: "Ouzoud Waterfalls",
-      image: ourikaValley,
-      duration: "Full Day",
-      groupSize: "2-15 people",
-      price: "From €40",
+      price: "From €55",
       rating: 4.8,
-      reviews: 286,
-      description: "Marvel at Morocco's highest waterfalls with optional boat rides and local wildlife spotting.",
+      reviews: 450,
+      description: "Enjoy a magical sunset with camel ride and traditional Moroccan dinner show in the stunning Agafay desert.",
     },
     {
-      id: "imlil-valley",
-      title: "Imlil Valley & Mount Toubkal Base",
-      image: atlasMountains,
-      duration: "Full Day",
-      groupSize: "2-10 people",
-      price: "From €50",
+      id: "agafay-dinner-quad",
+      title: "Marrakech Agafay Desert Dinner Show, Camel Ride, 1 Quad",
+      image: agafayDinnerImg1,
+      duration: "Half Day",
+      groupSize: "2-20 people",
+      price: "From €65",
       rating: 4.9,
-      reviews: 167,
-      description: "Trek to the base of North Africa's highest peak through picturesque Berber villages.",
+      reviews: 380,
+      description: "Experience the ultimate Agafay adventure with quad biking, camel ride, and dinner show under the stars.",
+    },
+    {
+      id: "paragliding-agafay",
+      title: "Marrakech Paragliding over Agafay Desert & Atlas Mnt Views",
+      image: paraglidingImg1,
+      duration: "3-4 hours",
+      groupSize: "1-8 people",
+      price: "From €95",
+      rating: 5.0,
+      reviews: 215,
+      description: "Soar above the stunning Agafay Desert and enjoy breathtaking views of the Atlas Mountains on this unforgettable paragliding experience.",
+    },
+    {
+      id: "zipline-atlas",
+      title: "Marrakech Zip-Line in the Atlas Mountains & Berber villages",
+      image: ziplineImg1,
+      duration: "Half Day",
+      groupSize: "2-12 people",
+      price: "From €50",
+      rating: 4.8,
+      reviews: 280,
+      description: "Experience an adrenaline-pumping zip-line adventure through the stunning Atlas Mountains and visit authentic Berber villages.",
     },
   ];
 

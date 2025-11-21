@@ -1,17 +1,42 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Clock, Users, MapPin, Star, Check, X } from "lucide-react";
+import { Phone, Clock, Users, MapPin, Star, Check, X, Plus, Minus } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import marrakechCity from "@/assets/marrakech-city.jpg";
 
 const TourDetail = () => {
   const { id } = useParams();
+  const [numberOfPeople, setNumberOfPeople] = useState(2);
+
+  const getPricePerPerson = (people: number) => {
+    if (people === 2) return 45;
+    if (people >= 3 && people <= 4) return 40;
+    if (people >= 5 && people <= 7) return 35;
+    if (people >= 8) return 30;
+    return 45;
+  };
+
+  const pricePerPerson = getPricePerPerson(numberOfPeople);
+  const totalPrice = pricePerPerson * numberOfPeople;
 
   const handleWhatsApp = () => {
     window.open(
-      `https://wa.me/212600000000?text=Hello, I'm interested in the tour: ${tourData.title}`,
+      `https://wa.me/212637988023?text=Hello, I'm interested in the tour: ${tourData.title} for ${numberOfPeople} people (€${totalPrice} total)`,
       "_blank"
     );
+  };
+
+  const incrementPeople = () => {
+    if (numberOfPeople < 20) {
+      setNumberOfPeople(numberOfPeople + 1);
+    }
+  };
+
+  const decrementPeople = () => {
+    if (numberOfPeople > 1) {
+      setNumberOfPeople(numberOfPeople - 1);
+    }
   };
 
   // Mock data - in a real app, this would come from an API or database
@@ -160,16 +185,66 @@ const TourDetail = () => {
             <Card className="sticky top-24">
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-6">Pricing</h3>
-                <div className="space-y-4 mb-6">
-                  {tourData.pricing.map((tier, index) => (
-                    <div
-                      key={index}
-                      className="flex justify-between items-center p-4 rounded-lg bg-muted"
+                
+                {/* Number of People Selector */}
+                <div className="mb-3">
+                  <label className="text-sm font-medium mb-2 block">Number of People</label>
+                  <div className="flex items-center justify-between p-4 rounded-lg bg-muted h-[60px]">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={decrementPeople}
+                      disabled={numberOfPeople <= 1}
+                      className="h-8 w-8"
                     >
-                      <span className="font-medium">{tier.people}</span>
-                      <span className="text-primary font-bold">{tier.price}</span>
+                      <Minus className="h-4 w-4" />
+                    </Button>
+                    <span className="text-xl font-bold">{numberOfPeople}</span>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={incrementPeople}
+                      disabled={numberOfPeople >= 20}
+                      className="h-8 w-8"
+                    >
+                      <Plus className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Pricing Display */}
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between items-center p-4 rounded-lg bg-muted h-[60px]">
+                    <span className="font-medium">Price per person</span>
+                    <span className="text-primary font-bold text-xl">€{pricePerPerson}</span>
+                  </div>
+                  <div className="flex justify-between items-center p-4 rounded-lg bg-primary text-primary-foreground h-[60px]">
+                    <span className="font-medium">Total Price</span>
+                    <span className="font-bold text-2xl">€{totalPrice}</span>
+                  </div>
+                </div>
+
+                {/* Pricing Tiers Reference */}
+                <div className="mb-6 p-4 rounded-lg bg-muted/50">
+                  <p className="text-xs font-semibold mb-2 text-muted-foreground">PRICING TIERS</p>
+                  <div className="space-y-1 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">2 people</span>
+                      <span className="font-medium">€45/person</span>
                     </div>
-                  ))}
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">3-4 people</span>
+                      <span className="font-medium">€40/person</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">5-7 people</span>
+                      <span className="font-medium">€35/person</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">8+ people</span>
+                      <span className="font-medium">€30/person</span>
+                    </div>
+                  </div>
                 </div>
 
                 <Button onClick={handleWhatsApp} size="lg" className="w-full gap-2 mb-4">
