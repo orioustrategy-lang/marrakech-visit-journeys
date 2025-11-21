@@ -26,7 +26,7 @@ const Tours = () => {
   const tours = [
     {
       id: "cooking-workshop-atlas",
-      title: "Depuis Marrakech : atelier culinaire et excursion d'une journée dans l'Atlas",
+      title: "From Marrakech: Cooking Workshop and Full-Day Atlas Mountain Excursion",
       image: cookingImg1,
       duration: "7 hours",
       groupSize: "2-15 people",
@@ -38,7 +38,7 @@ const Tours = () => {
     },
     {
       id: "agafay-sunset-camel-dinner",
-      title: "Marrakech : Coucher de soleil dans le désert d'Agafay, balade à dos de chameau et dîner-spectacle",
+      title: "Marrakech: Agafay Desert Sunset, Camel Ride & Dinner Show",
       image: agafaySunsetImg1,
       duration: "Half Day",
       groupSize: "2-20 people",
