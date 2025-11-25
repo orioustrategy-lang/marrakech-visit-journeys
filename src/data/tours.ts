@@ -287,7 +287,12 @@ export const tours: Tour[] = [
     ],
     duration: "4 hours",
     groupSize: "2-12 people",
-    price: "50€",
+    price: "From 45€",
+    priceTiers: [
+      { min: 1, max: 1, price: 55 },
+      { min: 2, max: 2, price: 50 },
+      { min: 3, price: 45 }
+    ],
     rating: 4.8,
     reviews: 195,
     description: "Immerse in an adventure with a thrilling zipline ride in the Atlas Mountains, followed by a traditional Moroccan breakfast at an argan oil cooperative in Tahanaout Valley.",
