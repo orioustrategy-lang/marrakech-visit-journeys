@@ -49,6 +49,7 @@ All colors MUST be HSL.
     
     --shadow-warm: 0 10px 40px -10px hsl(14 85% 55% / 0.3);
     --shadow-soft: 0 4px 20px -2px hsl(25 35% 15% / 0.1);
+    --shadow-booking: 0 20px 60px -15px hsl(25 35% 15% / 0.25);
   }
 
   .dark {
