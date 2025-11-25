@@ -105,6 +105,17 @@ const Footer = () => {
         <div className="container mx-auto px-4 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/50">
             <p>&copy; {currentYear} Marrakech Discover. All rights reserved.</p>
+            <p className="flex items-center gap-1">
+              Developed by{" "}
+              <a 
+                href="https://www.instagram.com/itsmeussa" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                @itsmeussa
+              </a>
+            </p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-background transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-background transition-colors">Terms of Service</a>
