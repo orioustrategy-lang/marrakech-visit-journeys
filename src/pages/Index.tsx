@@ -254,8 +254,20 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section 
+        className="py-24 relative"
+        style={{
+          backgroundImage: "url('/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_5740.JPG')",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
+        {/* Overlay for better readability */}
+        <div className="absolute inset-0 bg-background/70"></div>
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <span className="inline-block text-primary font-medium mb-4 tracking-wide uppercase text-sm">Why Us</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
