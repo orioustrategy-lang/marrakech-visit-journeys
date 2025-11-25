@@ -1,5 +1,11 @@
 // Centralized tours data for Marrakech Visit Journeys
 
+export interface PriceTier {
+  min: number;
+  max?: number;
+  price: number;
+}
+
 export interface Tour {
   id: string;
   title: string;
@@ -9,6 +15,7 @@ export interface Tour {
   duration: string;
   groupSize: string;
   price: string;
+  priceTiers?: PriceTier[]; // Tiered pricing based on group size
   rating?: number;
   reviews?: number;
   description: string;
@@ -34,7 +41,12 @@ export const tours: Tour[] = [
     ],
     duration: "5 hours",
     groupSize: "2-20 people",
-    price: "From 30€",
+    price: "From 40€",
+    priceTiers: [
+      { min: 1, max: 1, price: 50 },
+      { min: 2, max: 4, price: 45 },
+      { min: 5, price: 40 }
+    ],
     rating: 4.9,
     reviews: 380,
     description: "Experience the magic of Agafay Desert. Ride a quad, enjoy a sunset camel trek, and savor a traditional Moroccan dinner under the stars. End the night with a mesmerizing fire show for an unforgettable adventure.",
@@ -72,6 +84,11 @@ export const tours: Tour[] = [
     duration: "5 hours",
     groupSize: "2-20 people",
     price: "From 30€",
+    priceTiers: [
+      { min: 1, max: 1, price: 40 },
+      { min: 2, max: 4, price: 35 },
+      { min: 5, price: 30 }
+    ],
     rating: 4.8,
     reviews: 450,
     description: "Savor a magical dinner in the Agafay Desert with this adventure from Marrakesh. Ride a camel along an ancient Berber path, watch the sunset, and relax with dinner and entertainment at a desert camp.",
@@ -108,6 +125,11 @@ export const tours: Tour[] = [
     duration: "2 hours",
     groupSize: "2-15 people",
     price: "From 15€",
+    priceTiers: [
+      { min: 1, max: 1, price: 25 },
+      { min: 2, max: 4, price: 20 },
+      { min: 5, price: 15 }
+    ],
     rating: 4.7,
     reviews: 320,
     description: "Enjoy a camel ride through the palm groves of the Oasis Palmeraie on a Shared Tour. Explore the villages of the Palmeraie, try local tea, and admire the incredible landscapes outside Marrakech.",
@@ -140,6 +162,11 @@ export const tours: Tour[] = [
     duration: "3 hours",
     groupSize: "2-12 people",
     price: "From 35€",
+    priceTiers: [
+      { min: 1, max: 1, price: 45 },
+      { min: 2, max: 4, price: 40 },
+      { min: 5, price: 35 }
+    ],
     rating: 4.8,
     reviews: 280,
     description: "Explore the jbilet desert, the palm groves wild and rural Berber villages located outside of Marrakech on a quad tour.",
@@ -351,7 +378,12 @@ export const tours: Tour[] = [
     ],
     duration: "4 hours",
     groupSize: "Up to 19 people",
-    price: "130€",
+    price: "From 110€",
+    priceTiers: [
+      { min: 1, max: 1, price: 130 },
+      { min: 2, max: 4, price: 120 },
+      { min: 5, price: 110 }
+    ],
     rating: 5.0,
     reviews: 420,
     description: "Enjoy a morning flight over the northern Palmeraie of Marrakech, Jbilet, and the rural douars. Admire beautiful morning views and savor a traditional Moroccan buffet breakfast after landing.",
@@ -418,6 +450,9 @@ export const tours: Tour[] = [
     duration: "3 hours",
     groupSize: "Up to 7 people",
     price: "300€",
+    priceTiers: [
+      { min: 1, max: 7, price: 300 }
+    ],
     rating: 4.8,
     reviews: 185,
     description: "Enjoy a reliable and hassle-free private transfer between Casablanca Airport or hotels and Marrakech to start or end your holiday with a smile. Travel in comfort either from or to the airport.",
@@ -445,6 +480,9 @@ export const tours: Tour[] = [
     duration: "5 hours",
     groupSize: "Up to 7 people",
     price: "300€",
+    priceTiers: [
+      { min: 1, max: 7, price: 300 }
+    ],
     rating: 4.7,
     reviews: 145,
     description: "Leaving the enchanting comforts of your riad or hotel in Fes to embark on a journey to Casablanca's vibrant airport is a transition that marks both the end of a memorable Moroccan stay and the beginning of your next adventure.",
@@ -472,6 +510,9 @@ export const tours: Tour[] = [
     duration: "1 day",
     groupSize: "Up to 7 people",
     price: "450€",
+    priceTiers: [
+      { min: 1, max: 7, price: 450 }
+    ],
     rating: 4.8,
     reviews: 195,
     description: "Embark on an extraordinary journey through the heart of Morocco with a seamless one-way transfer from Marrakech to Fes. Experience the true essence of Morocco as you pass through charming towns, majestic mountains, and authentic Berber villages.",
@@ -1026,6 +1067,11 @@ export const tours: Tour[] = [
     duration: "2 days",
     groupSize: "Min 2, Max 15",
     price: "From 150€ per person",
+    priceTiers: [
+      { min: 1, max: 1, price: 200 },
+      { min: 2, max: 4, price: 180 },
+      { min: 5, price: 150 }
+    ],
     rating: 4.9,
     reviews: 155,
     description: "Trek through the stunning Azzaden Valley, exploring traditional Berber villages and experiencing authentic mountain life over 2 days.",
@@ -1064,6 +1110,11 @@ export const tours: Tour[] = [
     duration: "5 days",
     groupSize: "Min 2, Max 15",
     price: "From 280€ per person",
+    priceTiers: [
+      { min: 1, max: 1, price: 350 },
+      { min: 2, max: 4, price: 300 },
+      { min: 5, price: 280 }
+    ],
     rating: 5.0,
     reviews: 285,
     description: "Summit Mount Toubkal (4,167m), the highest peak in North Africa, combined with cultural experiences in Berber villages over 5 days.",
@@ -1103,6 +1154,11 @@ export const tours: Tour[] = [
     duration: "3 days",
     groupSize: "Min 2, Max 15",
     price: "From 230€ per person",
+    priceTiers: [
+      { min: 1, max: 1, price: 270 },
+      { min: 2, max: 4, price: 250 },
+      { min: 5, price: 230 }
+    ],
     rating: 4.8,
     reviews: 165,
     description: "Explore three stunning valleys in the High Atlas Mountains, passing through traditional Berber villages and experiencing authentic mountain culture.",
@@ -1141,6 +1197,11 @@ export const tours: Tour[] = [
     duration: "5 days",
     groupSize: "Min 2, Max 15",
     price: "From 450€ per person",
+    priceTiers: [
+      { min: 1, max: 1, price: 585 },
+      { min: 2, max: 4, price: 500 },
+      { min: 5, price: 450 }
+    ],
     rating: 4.9,
     reviews: 225,
     description: "Combine Atlas Mountains trekking with a Sahara Desert experience. Trek through valleys, cross mountain passes, and enjoy camel rides in the desert.",
@@ -1185,6 +1246,11 @@ export const tours: Tour[] = [
     duration: "12 days",
     groupSize: "Min 2, Max 15",
     price: "From 800€ per person",
+    priceTiers: [
+      { min: 1, max: 1, price: 1120 },
+      { min: 2, max: 4, price: 900 },
+      { min: 5, price: 800 }
+    ],
     rating: 5.0,
     reviews: 145,
     description: "The ultimate Atlas Mountains trek, circumnavigating Mount Toubkal over 12 days through diverse valleys, villages, and high mountain passes.",

@@ -20,26 +20,68 @@ const TourDetail = () => {
   const displayImages = tour.images && tour.images.length > 0 ? tour.images : (tour.image ? [tour.image] : []);
   const hasImages = displayImages.length > 0;
 
-  // Extract price number from price string
-  const extractPrice = (priceStr: string) => {
-    const match = priceStr.match(/(\d+)/);
-    return match ? parseInt(match[1]) : 50;
-  };
-
-  const basePrice = extractPrice(tour.price);
-  
+  // Get price per person based on priceTiers or fallback to old logic
   const getPricePerPerson = (people: number) => {
-    // Apply group discounts
-    if (people === 1) return basePrice * 1.5;
-    if (people === 2) return basePrice;
-    if (people >= 3 && people <= 4) return basePrice * 0.9;
-    if (people >= 5 && people <= 7) return basePrice * 0.8;
-    if (people >= 8) return basePrice * 0.7;
-    return basePrice;
+    if (tour.priceTiers && tour.priceTiers.length > 0) {
+      // Use the new priceTiers structure
+      for (const tier of tour.priceTiers) {
+        if (tier.max !== undefined) {
+          if (people >= tier.min && people <= tier.max) {
+            return tier.price;
+          }
+        } else {
+          // No max means this tier applies to this number and above
+          if (people >= tier.min) {
+            return tier.price;
+          }
+        }
+      }
+      // Fallback to last tier if no match
+      return tour.priceTiers[tour.priceTiers.length - 1].price;
+    } else {
+      // Fallback to old pricing logic for tours without priceTiers
+      const match = tour.price.match(/(\d+)/);
+      const basePrice = match ? parseInt(match[1]) : 50;
+      
+      if (people === 1) return basePrice * 1.5;
+      if (people === 2) return basePrice;
+      if (people >= 3 && people <= 4) return basePrice * 0.9;
+      if (people >= 5 && people <= 7) return basePrice * 0.8;
+      if (people >= 8) return basePrice * 0.7;
+      return basePrice;
+    }
   };
 
   const pricePerPerson = Math.round(getPricePerPerson(numberOfPeople));
   const totalPrice = pricePerPerson * numberOfPeople;
+  
+  // Get all price tiers for display
+  const getPricingTiersDisplay = () => {
+    if (tour.priceTiers && tour.priceTiers.length > 0) {
+      return tour.priceTiers.map(tier => {
+        let label = '';
+        if (tier.max !== undefined) {
+          label = tier.min === tier.max ? `${tier.min} person` : `${tier.min}-${tier.max} people`;
+        } else {
+          label = `${tier.min}+ people`;
+        }
+        return { label, price: tier.price };
+      });
+    } else {
+      // Fallback to old display
+      const match = tour.price.match(/(\d+)/);
+      const basePrice = match ? parseInt(match[1]) : 50;
+      return [
+        { label: '1 person', price: Math.round(basePrice * 1.5) },
+        { label: '2 people', price: basePrice },
+        { label: '3-4 people', price: Math.round(basePrice * 0.9) },
+        { label: '5-7 people', price: Math.round(basePrice * 0.8) },
+        { label: '8+ people', price: Math.round(basePrice * 0.7) },
+      ];
+    }
+  };
+
+  const pricingTiers = getPricingTiersDisplay();
 
   const handleWhatsApp = () => {
     window.open(
@@ -295,26 +337,12 @@ const TourDetail = () => {
                 <div className="mb-6 p-4 rounded-lg bg-muted/50">
                   <p className="text-xs font-semibold mb-2 text-muted-foreground">PRICING TIERS</p>
                   <div className="space-y-1 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">1 person</span>
-                      <span className="font-medium">€{Math.round(basePrice * 1.5)}/person</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">2 people</span>
-                      <span className="font-medium">€{basePrice}/person</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">3-4 people</span>
-                      <span className="font-medium">€{Math.round(basePrice * 0.9)}/person</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">5-7 people</span>
-                      <span className="font-medium">€{Math.round(basePrice * 0.8)}/person</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">8+ people</span>
-                      <span className="font-medium">€{Math.round(basePrice * 0.7)}/person</span>
-                    </div>
+                    {pricingTiers.map((tier, index) => (
+                      <div key={index} className="flex justify-between">
+                        <span className="text-muted-foreground">{tier.label}</span>
+                        <span className="font-medium">€{tier.price}/person</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
