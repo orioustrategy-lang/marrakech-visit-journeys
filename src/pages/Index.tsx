@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Star, CheckCircle, Users, Shield, Clock, Award } from "lucide-react";
 import TourCard from "@/components/TourCard";
+import SearchBar from "@/components/SearchBar";
 import { tours } from "@/data/tours";
 import heroImage from "@/assets/hero-desert.jpg";
 import youssefGuide from "@/assets/youssef-guide.jpg";
@@ -71,33 +72,37 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0">
           <img
             src={heroImage}
             alt="Marrakech Desert"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
         </div>
         
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Discover the Magic of Marrakech
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8">
-            Unforgettable tours, day trips, and authentic experiences across Morocco
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={handleWhatsApp} className="gap-2 text-lg">
+        <div className="relative z-10 w-full px-4 py-12 animate-fade-in">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
+              Discover the Magic of Marrakech
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto">
+              Unforgettable tours, day trips, and authentic experiences across Morocco
+            </p>
+          </div>
+          
+          {/* Search Bar */}
+          <div className="mb-6">
+            <SearchBar />
+          </div>
+          
+          <div className="text-center">
+            <p className="text-white/80 text-sm mb-4">Or contact us directly</p>
+            <Button size="lg" onClick={handleWhatsApp} className="gap-2 shadow-lg hover:shadow-xl transition-shadow">
               <Phone className="h-5 w-5" />
               Book via WhatsApp
             </Button>
-            <Link to="/tours">
-              <Button size="lg" variant="outline" className="text-lg bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-foreground w-full sm:w-auto">
-                Explore Our Tours
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -148,7 +153,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredTours.map((tour) => (
               <TourCard key={tour.id} {...tour} />
             ))}
