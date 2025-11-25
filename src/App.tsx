@@ -9,10 +9,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import Index from "./pages/Index";
 import Tours from "./pages/Tours";
 import TourDetail from "./pages/TourDetail";
-import Gallery from "./pages/Gallery";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
-import DayTrips from "./pages/DayTrips";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,9 +25,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/tours/:id" element={<TourDetail />} />
-          <Route path="/day-trips" element={<DayTrips />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

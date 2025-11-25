@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Clock, Users, Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Clock, Users, Star, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 interface TourCardProps {
   id: string;
@@ -46,101 +44,123 @@ const TourCard = ({
     e.stopPropagation();
     setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
   };
+
   return (
-    <Link to={`/tours/${id}`} className="block">
-      <Card className="overflow-hidden group hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
-        {displayImages.length > 0 && (
-          <div 
-            className="relative overflow-hidden h-64"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
+    <Link to={`/tours/${id}`} className="block group">
+      <article className="relative bg-card rounded-2xl overflow-hidden border border-border/50 card-hover h-full flex flex-col">
+        {/* Image Container */}
+        <div 
+          className="relative aspect-[4/3] overflow-hidden"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
+          {displayImages.length > 0 ? (
             <img
               src={displayImages[currentImageIndex]}
-              alt={`${title} - Image ${currentImageIndex + 1}`}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold z-10">
-              {price}
-            </div>
-            
-            {/* Image Navigation Arrows - Show on hover if multiple images */}
-            {hasMultipleImages && isHovering && (
-              <>
-                <button
-                  onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all z-10"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all z-10"
-                  aria-label="Next image"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-                
-                {/* Image Indicators */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-                  {displayImages.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`h-1.5 rounded-full transition-all ${
-                        index === currentImageIndex
-                          ? "w-6 bg-white"
-                          : "w-1.5 bg-white/60"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        )}
-        {displayImages.length === 0 && (
-          <div className="relative overflow-hidden h-64 bg-gradient-to-br from-primary/20 to-desert/20 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-4xl mb-2">🏔️</div>
-              <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                {price}
+          ) : (
+            <div className="w-full h-full bg-muted flex items-center justify-center">
+              <div className="text-muted-foreground text-center p-4">
+                <span className="text-4xl block mb-2">🏔</span>
+                <span className="text-sm">No image available</span>
               </div>
             </div>
+          )}
+          
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          {/* Price badge */}
+          <div className="absolute top-4 left-4">
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold bg-white/95 text-foreground shadow-lg backdrop-blur-sm">
+              {price}
+            </span>
           </div>
-        )}
+
+          {/* Rating badge */}
+          {rating && reviews && (
+            <div className="absolute top-4 right-4">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-sm font-medium bg-black/70 text-white backdrop-blur-sm">
+                <Star className="h-3.5 w-3.5 fill-[#e7c779] text-[#e7c779]" />
+                {rating}
+              </span>
+            </div>
+          )}
+          
+          {/* Image Navigation */}
+          {hasMultipleImages && isHovering && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-foreground rounded-full p-2 transition-all shadow-lg z-10 opacity-0 group-hover:opacity-100"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-foreground rounded-full p-2 transition-all shadow-lg z-10 opacity-0 group-hover:opacity-100"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+              
+              {/* Image dots */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                {displayImages.slice(0, 5).map((_, index) => (
+                  <span
+                    key={index}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? "w-6 bg-white"
+                        : "w-1.5 bg-white/60"
+                    }`}
+                  />
+                ))}
+                {displayImages.length > 5 && (
+                  <span className="text-white text-xs ml-1">+{displayImages.length - 5}</span>
+                )}
+              </div>
+            </>
+          )}
+        </div>
         
-        <CardContent className="p-6">
-          <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+        {/* Content */}
+        <div className="p-5 flex flex-col flex-grow">
+          <h3 className="font-semibold text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300" style={{ fontFamily: 'Inter, sans-serif' }}>
             {title}
           </h3>
           
-          {rating && reviews && (
-            <div className="flex items-center gap-1 mb-3">
-              <Star className="h-4 w-4 fill-gold text-gold" />
-              <span className="font-semibold">{rating}</span>
-              <span className="text-muted-foreground text-sm">({reviews} reviews)</span>
-            </div>
-          )}
+          <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-grow">
+            {description}
+          </p>
 
-          <p className="text-muted-foreground mb-4 line-clamp-2">{description}</p>
-
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              <span>{duration}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Users className="h-4 w-4" />
-              <span>{groupSize}</span>
-            </div>
+          {/* Meta info */}
+          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-4 w-4 text-primary" />
+              {duration}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Users className="h-4 w-4 text-primary" />
+              {groupSize}
+            </span>
           </div>
-        </CardContent>
 
-        <CardFooter className="p-6 pt-0">
-          <Button className="w-full">View Details</Button>
-        </CardFooter>
-      </Card>
+          {/* CTA */}
+          <div className="flex items-center justify-between pt-4 border-t border-border/50">
+            <span className="text-sm text-muted-foreground">
+              {reviews ? `${reviews} reviews` : "New experience"}
+            </span>
+            <span className="inline-flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all duration-300">
+              View Details
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          </div>
+        </div>
+      </article>
     </Link>
   );
 };
