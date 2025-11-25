@@ -10,10 +10,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <MapPin className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">Marrakech Discover</span>
-            </div>
+            <Link to="/" className="flex items-center mb-4">
+              <img src="/assets/logo.png" alt="Marrakech Discover" className="h-12" />
+            </Link>
             <p className="text-muted-foreground mb-4">
               Your trusted local partner for unforgettable experiences in Marrakech and beyond.
             </p>
