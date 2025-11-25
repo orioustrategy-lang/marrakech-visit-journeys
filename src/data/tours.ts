@@ -34,10 +34,10 @@ export const tours: Tour[] = [
     image: "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_5401.JPG",
     images: [
       "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_5401.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_9614.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_5740.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_9615.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_9618.JPG"
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/img-4.jpg",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/img-5.jpg",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/img-6.jpg",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_5740.JPG"
     ],
     duration: "5 hours",
     groupSize: "2-20 people",
@@ -73,13 +73,13 @@ export const tours: Tour[] = [
     id: "agafay-sunset-camel-dinner",
     title: "Marrakech: Agafay Desert Sunset, Camel Ride, and Dinner Show",
     category: "activity",
-    image: "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_5740.JPG",
+    image: "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_5602.JPG",
     images: [
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_5740.JPG",
       "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_5602.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_9614.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_9615.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_9618.JPG"
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/img-12.jpg",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/img-13.jpg",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/img-14.jpg",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_6953.JPG"
     ],
     duration: "5 hours",
     groupSize: "2-20 people",
@@ -119,8 +119,7 @@ export const tours: Tour[] = [
       "/assets/Marrakech Discover/Activities/camel ride in the oasis palmerai/145.jpg",
       "/assets/Marrakech Discover/Activities/camel ride in the oasis palmerai/98.jpg",
       "/assets/Marrakech Discover/Activities/camel ride in the oasis palmerai/img-1.jpg",
-      "/assets/Marrakech Discover/Activities/camel ride in the oasis palmerai/img-2.jpg",
-      "/assets/Marrakech Discover/Activities/camel ride in the oasis palmerai/img-3.jpg"
+      "/assets/Marrakech Discover/Activities/camel ride in the oasis palmerai/img-2.jpg"
     ],
     duration: "2 hours",
     groupSize: "2-15 people",
@@ -304,9 +303,8 @@ export const tours: Tour[] = [
     id: "rug-making-workshop",
     title: "Moroccan Rug-Making Workshop & Cultural Market Experience",
     category: "activity",
-    image: "/assets/Marrakech Discover/Activities/Moroccan Rug-Making Workshop & Cultural Market Experience/15_4_11zon-min-2048x1365-1.webp",
+    image: "/assets/Marrakech Discover/Activities/Moroccan Rug-Making Workshop & Cultural Market Experience/Beni-processs-25.webp",
     images: [
-      "/assets/Marrakech Discover/Activities/Moroccan Rug-Making Workshop & Cultural Market Experience/15_4_11zon-min-2048x1365-1.webp",
       "/assets/Marrakech Discover/Activities/Moroccan Rug-Making Workshop & Cultural Market Experience/Beni-processs-25.webp",
       "/assets/Marrakech Discover/Activities/Moroccan Rug-Making Workshop & Cultural Market Experience/Moroccan-carpets.jpg",
       "/assets/Marrakech Discover/Activities/Moroccan Rug-Making Workshop & Cultural Market Experience/moroccan_rugs.jpg",
@@ -368,13 +366,13 @@ export const tours: Tour[] = [
     id: "hot-air-balloon",
     title: "Marrakech: Balloon Ride with Buffet Breakfast & Certificate",
     category: "activity",
-    image: "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_9614.JPG",
+    image: "/assets/Marrakech Discover/Activities/Marrakech_ Paragliding over Agafay Desert & Atlas Mnt Views/IMG_7175.JPG",
     images: [
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_9614.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_5401.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_5740.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Quad & Camel Rides with Dinner Show/IMG_9615.JPG",
-      "/assets/Marrakech Discover/Activities/Marrakech_ Agafay Desert Sunset, Camel Ride, and Dinner Show/IMG_6953.JPG"
+      "/assets/Marrakech Discover/Activities/Marrakech_ Paragliding over Agafay Desert & Atlas Mnt Views/IMG_7175.JPG",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Paragliding over Agafay Desert & Atlas Mnt Views/IMG_7188.JPG",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Paragliding over Agafay Desert & Atlas Mnt Views/IMG_7189.JPG",
+      "/assets/Marrakech Discover/Activities/Marrakech_ Paragliding over Agafay Desert & Atlas Mnt Views/IMG_7197.JPG",
+      "/assets/atlas-mountains.jpg"
     ],
     duration: "4 hours",
     groupSize: "Up to 19 people",
@@ -539,8 +537,7 @@ export const tours: Tour[] = [
       "/assets/Marrakech Discover/Day Trips/Casablanca Day Tour from Marrakech and Big Mosque Visit/145.png",
       "/assets/Marrakech Discover/Day Trips/Casablanca Day Tour from Marrakech and Big Mosque Visit/146.png",
       "/assets/Marrakech Discover/Day Trips/Casablanca Day Tour from Marrakech and Big Mosque Visit/148.jpg",
-      "/assets/Marrakech Discover/Day Trips/Casablanca Day Tour from Marrakech and Big Mosque Visit/Casablanca-Tours.jpg",
-      "/assets/Marrakech Discover/Day Trips/Casablanca Day Tour from Marrakech and Big Mosque Visit/MarrakechtoCasablancaDayTour_VisittheIconicHassanIIMosque.jpg"
+      "/assets/Marrakech Discover/Day Trips/Casablanca Day Tour from Marrakech and Big Mosque Visit/Casablanca-Tours.jpg"
     ],
     duration: "11 hours",
     groupSize: "Private tour",
@@ -650,9 +647,7 @@ export const tours: Tour[] = [
     images: [
       "/assets/Marrakech Discover/Day Trips/From Marrakech_ Ouzoud Waterfalls Guided Hike and Boat Trip/145.png",
       "/assets/Marrakech Discover/Day Trips/From Marrakech_ Ouzoud Waterfalls Guided Hike and Boat Trip/148.png",
-      "/assets/Marrakech Discover/Day Trips/From Marrakech_ Ouzoud Waterfalls Guided Hike and Boat Trip/from-marrakech-ouzoud-waterfalls-guided-hike-and-boat-trip-02.jpg",
-      "/assets/Marrakech Discover/Day Trips/From Marrakech_ Ouzoud Waterfalls Guided Hike and Boat Trip/From-Marrakech-Ouzoud-Waterfalls-Guided-Hike-and-Boat-Trip3.webp",
-      "/assets/Marrakech Discover/Day Trips/From Marrakech_ Ouzoud Waterfalls Guided Hike and Boat Trip/OuzoudWaterfalls,GuidedMountainHikeandBoatRidefromMarrakech.jpg"
+      "/assets/Marrakech Discover/Day Trips/From Marrakech_ Ouzoud Waterfalls Guided Hike and Boat Trip/98.jpg"
     ],
     duration: "10 hours",
     groupSize: "Private tour",
@@ -685,10 +680,7 @@ export const tours: Tour[] = [
     image: "/assets/Marrakech Discover/Day Trips/From Marrakech_Private Day to essaouira & sekkal trip/Essaouira-Medina-Souks.webp",
     images: [
       "/assets/Marrakech Discover/Day Trips/From Marrakech_Private Day to essaouira & sekkal trip/Essaouira-Medina-Souks.webp",
-      "/assets/Marrakech Discover/Day Trips/From Marrakech_Private Day to essaouira & sekkal trip/Things-to-Do-Essaouira-Canon-Ramparts.webp",
-      "/assets/Marrakech Discover/Day Trips/From Marrakech_Private Day to essaouira & sekkal trip/Things-to-Do-Essaouira-Fishing-Boats.webp",
-      "/assets/Marrakech Discover/Day Trips/From Marrakech_Private Day to essaouira & sekkal trip/Things-to-do-Essaouira-Fish-Market-Grill.webp",
-      "/assets/Marrakech Discover/Day Trips/From Marrakech_Private Day to essaouira & sekkal trip/Gnawa-musician-in-Essaouira.jpg"
+      "/assets/Marrakech Discover/Day Trips/From Marrakech_Private Day to essaouira & sekkal trip/Shopping-Essaouira-street.webp"
     ],
     duration: "11.5 hours",
     groupSize: "Private tour",
@@ -1056,13 +1048,13 @@ export const tours: Tour[] = [
     id: "azzaden-valley-trek-2-days",
     title: "Azzaden Valley & Berber Villages Trek (2 Days)",
     category: "trekking",
-    image: "/assets/Marrakech Discover/trekking/picture/000df7ec-2aa4-490f-a33a-513ba4953465.avif",
+    image: "/assets/Marrakech Discover/trekking/picture/img-161.avif",
     images: [
-      "/assets/Marrakech Discover/trekking/picture/000df7ec-2aa4-490f-a33a-513ba4953465.avif",
-      "/assets/Marrakech Discover/trekking/picture/04be9343-6deb-429d-9755-56522b9f14e4.avif",
-      "/assets/Marrakech Discover/trekking/picture/0f051d6b-2d7d-4b62-bb95-aafdcc554e6c.avif",
-      "/assets/Marrakech Discover/trekking/picture/16c73771-af1e-4aec-b90f-b0a64f6a1fbb.avif",
-      "/assets/Marrakech Discover/trekking/picture/1ebd24a2-b25d-4d27-9635-12c650264081.avif"
+      "/assets/Marrakech Discover/trekking/picture/img-161.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-162.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-163.avif",
+      "/assets/Marrakech Discover/trekking/picture/IMG_1357.JPG",
+      "/assets/Marrakech Discover/trekking/picture/IMG_1358.JPG"
     ],
     duration: "2 days",
     groupSize: "Min 2, Max 15",
@@ -1099,13 +1091,13 @@ export const tours: Tour[] = [
     id: "mount-toubkal-trek-5-days",
     title: "Mount Toubkal Trek & Berber Village Trip (5 Days)",
     category: "trekking",
-    image: "/assets/Marrakech Discover/trekking/picture/04be9343-6deb-429d-9755-56522b9f14e4.avif",
+    image: "/assets/Marrakech Discover/trekking/picture/img-165.avif",
     images: [
-      "/assets/Marrakech Discover/trekking/picture/04be9343-6deb-429d-9755-56522b9f14e4.avif",
-      "/assets/Marrakech Discover/trekking/picture/4e2896c7-aed0-4388-89dc-3f0f2f543f55.avif",
-      "/assets/Marrakech Discover/trekking/picture/5ab8942e-1042-421b-8ae0-ae4659592d1b.avif",
-      "/assets/Marrakech Discover/trekking/picture/62144af8-299a-4fd6-958e-ea8ac1d1b1a0.avif",
-      "/assets/Marrakech Discover/trekking/picture/695ade7c-0894-4190-97cb-027ef4e6fde2.avif"
+      "/assets/Marrakech Discover/trekking/picture/img-165.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-166.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-167.avif",
+      "/assets/Marrakech Discover/trekking/picture/IMG_2927.JPG",
+      "/assets/Marrakech Discover/trekking/picture/IMG_2931.JPG"
     ],
     duration: "5 days",
     groupSize: "Min 2, Max 15",
@@ -1143,13 +1135,13 @@ export const tours: Tour[] = [
     id: "three-valleys-trek-3-days",
     title: "Three Valleys & Berber Villages Trek (3 Days)",
     category: "trekking",
-    image: "/assets/Marrakech Discover/trekking/picture/0f051d6b-2d7d-4b62-bb95-aafdcc554e6c.avif",
+    image: "/assets/Marrakech Discover/trekking/picture/img-169.avif",
     images: [
-      "/assets/Marrakech Discover/trekking/picture/0f051d6b-2d7d-4b62-bb95-aafdcc554e6c.avif",
-      "/assets/Marrakech Discover/trekking/picture/6e21e322-27bf-47cd-82aa-dde219c55b86.avif",
-      "/assets/Marrakech Discover/trekking/picture/7e976740-19fb-40f1-a834-62836b39bd48.avif",
-      "/assets/Marrakech Discover/trekking/picture/987f35b9-34c6-46fb-aba0-20cd547dfae3.avif",
-      "/assets/Marrakech Discover/trekking/picture/abe1a25d-a2f7-4f6e-9629-68335400f633.avif"
+      "/assets/Marrakech Discover/trekking/picture/img-169.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-170.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-171.avif",
+      "/assets/Marrakech Discover/trekking/picture/IMG_1359.JPG",
+      "/assets/Marrakech Discover/trekking/picture/IMG_1366.JPG"
     ],
     duration: "3 days",
     groupSize: "Min 2, Max 15",
@@ -1186,13 +1178,13 @@ export const tours: Tour[] = [
     id: "atlas-sahara-5-days",
     title: "Atlas Mountains Two Valleys & Sahara Desert Trip (5 Days)",
     category: "trekking",
-    image: "/assets/Marrakech Discover/trekking/picture/110fda08-c82b-4d17-a5ee-e23e6ef88961.jpg",
+    image: "/assets/Marrakech Discover/trekking/picture/DSC_0110-scaled.jpg",
     images: [
-      "/assets/Marrakech Discover/trekking/picture/110fda08-c82b-4d17-a5ee-e23e6ef88961.jpg",
-      "/assets/Marrakech Discover/trekking/picture/556a21a7-6e00-4aea-8cbc-46bdbfba38c8.jpg",
-      "/assets/Marrakech Discover/trekking/picture/c19b6230-5620-41f0-b073-2fe34e44ce3c.jpg",
       "/assets/Marrakech Discover/trekking/picture/DSC_0110-scaled.jpg",
-      "/assets/Marrakech Discover/trekking/picture/ef4002ee-c4d1-46f9-9522-55114cbd992f.jpg"
+      "/assets/Marrakech Discover/trekking/picture/img-177.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-179.avif",
+      "/assets/Marrakech Discover/trekking/picture/IMG_2934.JPG",
+      "/assets/Marrakech Discover/trekking/picture/IMG_2935.JPG"
     ],
     duration: "5 days",
     groupSize: "Min 2, Max 15",
@@ -1235,13 +1227,13 @@ export const tours: Tour[] = [
     id: "big-tour-toubkal-12-days",
     title: "Big Tour Around Toubkal (12 Days)",
     category: "trekking",
-    image: "/assets/Marrakech Discover/trekking/picture/16c73771-af1e-4aec-b90f-b0a64f6a1fbb.avif",
+    image: "/assets/Marrakech Discover/trekking/picture/img-173.avif",
     images: [
-      "/assets/Marrakech Discover/trekking/picture/16c73771-af1e-4aec-b90f-b0a64f6a1fbb.avif",
-      "/assets/Marrakech Discover/trekking/picture/c666bba6-c67e-4015-8ce8-4f942e3d7429.avif",
-      "/assets/Marrakech Discover/trekking/picture/d233612a-7bfa-4176-8ba6-26dcc8c20bdb.avif",
-      "/assets/Marrakech Discover/trekking/picture/e6f806e9-dab6-4cf2-9f01-de5bf645a46f.avif",
-      "/assets/Marrakech Discover/trekking/picture/f46aa2c0-9159-46f6-bb3d-398ea5da2a0e.avif"
+      "/assets/Marrakech Discover/trekking/picture/img-173.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-174.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-176.avif",
+      "/assets/Marrakech Discover/trekking/picture/IMG_2932.JPG",
+      "/assets/Marrakech Discover/trekking/picture/IMG_2933.JPG"
     ],
     duration: "12 days",
     groupSize: "Min 2, Max 15",
