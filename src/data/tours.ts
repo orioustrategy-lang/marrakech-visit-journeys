@@ -1357,6 +1357,99 @@ export const tours: Tour[] = [
       "Accommodation in Marrakech",
       "Tip"
     ]
+  },
+  {
+    id: "toubkal-sahara-trek-5-days",
+    title: "Mount Toubkal Trek & Sahara Desert Trip (5 Days)",
+    category: "trekking",
+    image: "/assets/Marrakech Discover/trekking/picture/img-181.avif",
+    images: [
+      "/assets/Marrakech Discover/trekking/picture/img-181.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-182.avif",
+      "/assets/Marrakech Discover/trekking/picture/IMG_4385.JPG",
+      "/assets/Marrakech Discover/trekking/picture/IMG_2936.JPG"
+    ],
+    duration: "5 days",
+    groupSize: "Min 2, Max 15",
+    price: "From 400€ per person",
+    priceTiers: [
+      { min: 2, max: 6, price: 450 },
+      { min: 7, max: 8, price: 430 },
+      { min: 9, max: 12, price: 420 },
+      { min: 13, price: 400 }
+    ],
+    rating: 4.9,
+    reviews: 198,
+    description: "Summit Mount Toubkal (4,167m), the highest peak in North Africa, then continue to the Sahara Desert for camel rides and a night under the stars in Merzouga.",
+    highlights: [
+      "Summit Mount Toubkal at 4,167m - highest peak in North Africa",
+      "Trek through traditional Berber villages in the High Atlas",
+      "Visit Ait Ben Haddou UNESCO World Heritage site",
+      "Explore Dades and Todra Gorges",
+      "Camel ride in Merzouga dunes at sunset",
+      "Sleep in a desert camp under the stars"
+    ],
+    included: [
+      "Private transport to Atlas Mountains & throughout desert trip",
+      "Hotel pick up and drop off",
+      "Accommodation in the mountains",
+      "All meals during your trek in the mountains",
+      "Mules to carry the luggage in the mountains",
+      "Mountain guide",
+      "Accommodation in hotel & desert tents with half board",
+      "Speaking English driver guide",
+      "Camel ride in the desert"
+    ],
+    notIncluded: [
+      "Travel insurance",
+      "Lunches during the desert trip",
+      "Soft Drinks and water",
+      "Tip"
+    ]
+  },
+  {
+    id: "berber-villages-atlas-trek-3-days",
+    title: "Trekking through Berber Villages of Atlas Mountains (3 Days)",
+    category: "trekking",
+    image: "/assets/Marrakech Discover/trekking/picture/img-185.avif",
+    images: [
+      "/assets/Marrakech Discover/trekking/picture/img-185.avif",
+      "/assets/Marrakech Discover/trekking/picture/img-186.avif",
+      "/assets/Marrakech Discover/trekking/picture/IMG_0587.JPG",
+      "/assets/Marrakech Discover/trekking/picture/img-175.jpg"
+    ],
+    duration: "3 days",
+    groupSize: "Min 2, Max 15",
+    price: "From 130€ per person",
+    priceTiers: [
+      { min: 2, max: 4, price: 180 },
+      { min: 5, max: 6, price: 160 },
+      { min: 7, max: 10, price: 140 },
+      { min: 11, price: 130 }
+    ],
+    rating: 4.8,
+    reviews: 175,
+    description: "Immerse yourself in authentic Berber culture on this 3-day trek through the stunning Azzaden Valley, exploring traditional villages and enjoying breathtaking mountain scenery.",
+    highlights: [
+      "Trek through Ouirgane National Park",
+      "Explore the stunning Azzaden Valley",
+      "Visit traditional Berber villages like Tinzert and Ait Aissa",
+      "Cross Tizi n Mzik pass (2489m) with panoramic views",
+      "Experience authentic Berber hospitality"
+    ],
+    included: [
+      "Private transport to and from Marrakech",
+      "Hotel pick up and drop off",
+      "All meals during your 3 days trek + coffee and tea",
+      "Accommodation in Berber guest houses",
+      "Experienced & English-speaking mountain guide",
+      "Mules to carry your bags"
+    ],
+    notIncluded: [
+      "Travel insurance",
+      "Drinks",
+      "Tip"
+    ]
   }
 ];
 
