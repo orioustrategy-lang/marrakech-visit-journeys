@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Users, MapPin, Star, Check, X, Plus, Minus, ChevronLeft, ChevronRight, ArrowLeft, Calendar, Shield, Heart, Share2, Camera, Sparkles } from "lucide-react";
 import { getTourById, tours } from "@/data/tours";
@@ -11,6 +11,12 @@ const TourDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showAllImages, setShowAllImages] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+
+  // Scroll to top when component mounts or tour ID changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setCurrentImageIndex(0); // Reset image index when tour changes
+  }, [id]);
   
   const tour = getTourById(id || "");
   
@@ -20,6 +26,17 @@ const TourDetail = () => {
 
   const displayImages = tour.images && tour.images.length > 0 ? tour.images : (tour.image ? [tour.image] : []);
   const hasImages = displayImages.length > 0;
+
+  // Auto-scroll images every 4 seconds
+  useEffect(() => {
+    if (displayImages.length <= 1 || showAllImages) return;
+    
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
+    }, 4000);
+    
+    return () => clearInterval(interval);
+  }, [displayImages.length, showAllImages]);
 
   // Get related tours (same category, excluding current)
   const relatedTours = tours
@@ -121,18 +138,27 @@ const TourDetail = () => {
   return (
     <div className="min-h-screen bg-background pt-20">
       {/* Hero Image Gallery - Full Width */}
-      <div className="relative h-[50vh] md:h-[65vh] w-full">
+      <div className="relative h-[50vh] md:h-[65vh] w-full overflow-hidden">
         {hasImages ? (
           <>
-            {/* Main Image */}
-            <img
-              src={displayImages[currentImageIndex]}
-              alt={tour.title}
-              className="w-full h-full object-cover"
-            />
+            {/* Slider Container */}
+            <div 
+              className="flex h-full transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+            >
+              {displayImages.map((image, index) => (
+                <div key={index} className="min-w-full h-full flex-shrink-0">
+                  <img
+                    src={image}
+                    alt={`${tour.title} - Image ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
             
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30 pointer-events-none" />
             
             {/* Top Actions */}
             <div className="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-between items-start z-20">
@@ -217,20 +243,29 @@ const TourDetail = () => {
                   )}
                 </div>
                 
-                {/* Image Dots */}
+                {/* Image Dots with Progress Animation */}
                 {displayImages.length > 1 && (
-                  <div className="flex gap-1.5 mt-4">
+                  <div className="flex gap-2 mt-4">
                     {displayImages.slice(0, 8).map((_, index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`h-1 rounded-full transition-all ${
+                        className={`h-1.5 rounded-full transition-all duration-300 overflow-hidden ${
                           index === currentImageIndex
-                            ? "w-8 bg-white"
-                            : "w-4 bg-white/40 hover:bg-white/60"
+                            ? "w-10 bg-white/30"
+                            : "w-3 bg-white/30 hover:bg-white/50"
                         }`}
                         aria-label={`Go to image ${index + 1}`}
-                      />
+                      >
+                        {index === currentImageIndex && (
+                          <div 
+                            className="h-full bg-white rounded-full animate-progress"
+                            style={{
+                              animation: 'progress 4s linear infinite'
+                            }}
+                          />
+                        )}
+                      </button>
                     ))}
                     {displayImages.length > 8 && (
                       <span className="text-white/60 text-xs ml-2">+{displayImages.length - 8} more</span>

@@ -247,6 +247,11 @@
     50% { transform: translateY(-10px); }
   }
 
+  @keyframes progress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
   /* Text gradient utility */
   .text-gradient {
     background: linear-gradient(135deg, #f1742a 0%, #deb85c 100%);

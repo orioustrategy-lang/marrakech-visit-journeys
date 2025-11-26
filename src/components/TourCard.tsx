@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Clock, Users, Star, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 interface TourCardProps {
@@ -29,9 +29,30 @@ const TourCard = ({
 }: TourCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
   const displayImages = images && images.length > 0 ? images : (image ? [image] : []);
   const hasMultipleImages = displayImages.length > 1;
+
+  // Auto-scroll images when hovering
+  useEffect(() => {
+    if (isHovering && hasMultipleImages) {
+      intervalRef.current = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
+      }, 2000);
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    }
+    
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isHovering, hasMultipleImages, displayImages.length]);
   
   const nextImage = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -52,14 +73,24 @@ const TourCard = ({
         <div 
           className="relative aspect-[4/3] overflow-hidden"
           onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
+          onMouseLeave={() => {
+            setIsHovering(false);
+            setCurrentImageIndex(0); // Reset to first image when not hovering
+          }}
         >
           {displayImages.length > 0 ? (
-            <img
-              src={displayImages[currentImageIndex]}
-              alt={title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            <>
+              {displayImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`${title} - Image ${index + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+                    index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              ))}
+            </>
           ) : (
             <div className="w-full h-full bg-muted flex items-center justify-center">
               <div className="text-muted-foreground text-center p-4">
@@ -107,17 +138,26 @@ const TourCard = ({
                 <ChevronRight className="h-4 w-4" />
               </button>
               
-              {/* Image dots */}
+              {/* Image dots with progress */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
                 {displayImages.slice(0, 5).map((_, index) => (
                   <span
                     key={index}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                    className={`h-1.5 rounded-full transition-all duration-300 overflow-hidden ${
                       index === currentImageIndex
-                        ? "w-6 bg-white"
+                        ? "w-6 bg-white/40"
                         : "w-1.5 bg-white/60"
                     }`}
-                  />
+                  >
+                    {index === currentImageIndex && isHovering && (
+                      <span 
+                        className="block h-full bg-white rounded-full"
+                        style={{
+                          animation: 'progress 2s linear infinite'
+                        }}
+                      />
+                    )}
+                  </span>
                 ))}
                 {displayImages.length > 5 && (
                   <span className="text-white text-xs ml-1">+{displayImages.length - 5}</span>
