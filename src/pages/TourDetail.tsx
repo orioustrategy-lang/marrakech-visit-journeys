@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Users, MapPin, Star, Check, X, Plus, Minus, ChevronLeft, ChevronRight, ArrowLeft, Calendar, Shield, Heart, Share2, Camera, Sparkles } from "lucide-react";
 import { getTourById, tours } from "@/data/tours";
@@ -11,6 +11,10 @@ const TourDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showAllImages, setShowAllImages] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  
+  // Touch/swipe handling for mobile
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
 
   // Scroll to top when component mounts or tour ID changes
   useEffect(() => {
@@ -37,6 +41,30 @@ const TourDetail = () => {
     
     return () => clearInterval(interval);
   }, [displayImages.length, showAllImages]);
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const swipeThreshold = 50;
+    const diff = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - next image
+        setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
+      } else {
+        // Swipe right - previous image
+        setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
+      }
+    }
+  };
 
   // Get related tours (same category, excluding current)
   const relatedTours = tours
@@ -138,27 +166,28 @@ const TourDetail = () => {
   return (
     <div className="min-h-screen bg-background pt-20">
       {/* Hero Image Gallery - Full Width */}
-      <div className="relative h-[50vh] md:h-[65vh] w-full overflow-hidden">
+      <div 
+        className="relative h-[50vh] md:h-[65vh] w-full overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {hasImages ? (
           <>
-            {/* Slider Container */}
-            <div 
-              className="flex h-full transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-            >
-              {displayImages.map((image, index) => (
-                <div key={index} className="min-w-full h-full flex-shrink-0">
-                  <img
-                    src={image}
-                    alt={`${tour.title} - Image ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+            {/* Fade Animation - All images stacked */}
+            {displayImages.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`${tour.title} - Image ${index + 1}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                  index === currentImageIndex ? 'opacity-100 z-0' : 'opacity-0 z-0'
+                }`}
+              />
+            ))}
             
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30 pointer-events-none z-10" />
             
             {/* Top Actions */}
             <div className="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-between items-start z-20">
@@ -193,14 +222,14 @@ const TourDetail = () => {
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-foreground rounded-full p-3 transition-all shadow-lg z-10"
+                  className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-foreground rounded-full p-3 transition-all shadow-lg z-20"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-foreground rounded-full p-3 transition-all shadow-lg z-10"
+                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-foreground rounded-full p-3 transition-all shadow-lg z-20"
                   aria-label="Next image"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -209,7 +238,7 @@ const TourDetail = () => {
             )}
             
             {/* Bottom Info Bar */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 z-20">
               <div className="container mx-auto">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                   {/* Title & Meta on Image */}
