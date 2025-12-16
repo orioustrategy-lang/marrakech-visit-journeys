@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Star, Users, Shield, Clock, Award, ArrowRight, MapPin, Compass } from "lucide-react";
 import TourCard from "@/components/TourCard";
+import SEO from "@/components/SEO";
 import { tours } from "@/data/tours";
 import heroImage from "@/assets/hero-desert.jpg";
 import youssefGuide from "@/assets/youssef-guide.jpg";
@@ -80,6 +81,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Marrakech Discover - Best Morocco Tours, Sahara Desert Trips & Adventures 2025"
+        description="Book unforgettable Marrakech tours with local experts! Sahara desert camping, Atlas mountains hiking, camel rides, Essaouira day trips & more. Best prices guaranteed ✓ 24/7 WhatsApp support ✓ 10,000+ happy travelers"
+        keywords="Marrakech tours, Morocco trips, Sahara desert tour from Marrakech, Atlas mountains day trip, camel ride Marrakech, Essaouira day trip, Ouzoud waterfalls tour, Ait Ben Haddou, Merzouga desert camp, hot air balloon Marrakech, quad biking Agafay, best Marrakech tours 2025, Morocco adventure tours, Marrakech excursions, Morocco travel agency, book Morocco tour"
+        url="https://www.marrakechdiscover.com/"
+      />
+      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax Effect */}

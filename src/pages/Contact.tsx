@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Instagram, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -44,6 +45,13 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEO 
+        title="Contact Us - Book Your Morocco Tour | Marrakech Discover"
+        description="Contact Marrakech Discover for tour bookings and inquiries. WhatsApp: +212 637 988 023. Available 24/7 for Sahara desert tours, Atlas mountains trips, and all Morocco adventures. Quick response guaranteed!"
+        keywords="contact Marrakech tours, book Morocco tour, Marrakech travel agency contact, WhatsApp Morocco tours, Morocco tour booking, Marrakech Discover contact"
+        url="https://www.marrakechdiscover.com/contact"
+      />
+      
       {/* Header */}
       <section className="relative py-20 bg-[#f1742a] overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />

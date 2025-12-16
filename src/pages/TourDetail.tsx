@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Clock, Users, MapPin, Star, Check, X, Plus, Minus, ChevronLeft, ChevronRight, ArrowLeft, Calendar, Shield, Heart, Share2, Camera, Sparkles } from "lucide-react";
 import { getTourById, tours } from "@/data/tours";
 import TourCard from "@/components/TourCard";
+import SEO from "@/components/SEO";
 
 const TourDetail = () => {
   const { id } = useParams();
@@ -163,8 +164,31 @@ const TourDetail = () => {
     setCurrentImageIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
   };
 
+  // Generate SEO-friendly image URL
+  const seoImage = tour.image?.startsWith('http') 
+    ? tour.image 
+    : `https://www.marrakechdiscover.com${tour.image}`;
+
   return (
     <div className="min-h-screen bg-background pt-20">
+      <SEO 
+        title={`${tour.title} - Book Now from ${tour.price}`}
+        description={`${tour.description.substring(0, 155)}... Duration: ${tour.duration}. Group size: ${tour.groupSize}. Book your ${tour.title} with Marrakech Discover - best prices guaranteed!`}
+        keywords={`${tour.title}, ${tour.category} Marrakech, Morocco ${tour.category}, book ${tour.title}, ${tour.title} price, Marrakech ${tour.duration} tour`}
+        url={`https://www.marrakechdiscover.com/tours/${tour.id}`}
+        image={seoImage}
+        type="product"
+        tourData={{
+          name: tour.title,
+          description: tour.description,
+          image: seoImage,
+          price: tour.price,
+          duration: tour.duration,
+          rating: tour.rating,
+          reviews: tour.reviews
+        }}
+      />
+      
       {/* Hero Image Gallery - Full Width */}
       <div 
         className="relative h-[50vh] md:h-[65vh] w-full overflow-hidden"

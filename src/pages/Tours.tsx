@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TourCard from "@/components/TourCard";
+import SEO from "@/components/SEO";
 import { tours } from "@/data/tours";
 import { Search, SlidersHorizontal } from "lucide-react";
 
@@ -25,6 +26,13 @@ const Tours = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEO 
+        title="All Marrakech Tours & Experiences - Desert, Mountains, Day Trips"
+        description="Browse 50+ authentic Morocco tours from Marrakech. Sahara desert adventures, Atlas mountains treks, Essaouira coastal trips, camel rides, quad biking & cultural experiences. Book with best price guarantee!"
+        keywords="Marrakech tours list, Morocco excursions, day trips from Marrakech, desert tours Morocco, Atlas mountains tours, Essaouira trip, Ouzoud waterfalls, all Morocco tours, adventure tours Marrakech, cultural tours Morocco, trekking Morocco"
+        url="https://www.marrakechdiscover.com/tours"
+      />
+      
       {/* Header */}
       <section className="relative py-20 bg-[#f1742a] overflow-hidden">
         {/* Decorative elements */}
