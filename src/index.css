@@ -252,6 +252,13 @@
     to { width: 100%; }
   }
 
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Text gradient utility */
   .text-gradient {
     background: linear-gradient(135deg, #f1742a 0%, #deb85c 100%);

@@ -1,125 +1,108 @@
-import { Users, Heart, Award, Globe } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import moroccanCulture from "@/assets/moroccan-culture.jpg";
+import { Link } from "react-router-dom";
+import { Users, Heart, Award, Globe, ArrowRight, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
+import { useTours } from "@/hooks/use-tours";
+import { openWhatsApp, SITE_URL } from "@/lib/contact";
+import { useT } from "@/i18n";
+import youssefGuide from "@/assets/optimized/youssef-guide.webp";
+import moroccanCulture from "@/assets/optimized/moroccan-culture.webp";
 
 const About = () => {
+  const t = useT();
+  const { data: tours } = useTours();
+
   const values = [
-    {
-      icon: Heart,
-      title: "Passion for Morocco",
-      description: "We love sharing the beauty and culture of our homeland with travelers from around the world.",
-    },
-    {
-      icon: Users,
-      title: "Local Expertise",
-      description: "Our team consists of born-and-raised Moroccans who know every hidden gem and authentic experience.",
-    },
-    {
-      icon: Award,
-      title: "Quality Service",
-      description: "We're committed to providing exceptional experiences with attention to every detail.",
-    },
-    {
-      icon: Globe,
-      title: "Authentic Experiences",
-      description: "We create genuine connections between travelers and Moroccan culture and traditions.",
-    },
+    { icon: Heart, title: t("about.values.passionTitle"), description: t("about.values.passionBody") },
+    { icon: Users, title: t("about.values.localTitle"), description: t("about.values.localBody") },
+    { icon: Award, title: t("about.values.qualityTitle"), description: t("about.values.qualityBody") },
+    { icon: Globe, title: t("about.values.authenticTitle"), description: t("about.values.authenticBody") },
+  ];
+
+  const stats = [
+    { value: "6+", label: t("home.stats.years") },
+    { value: "10K+", label: t("home.stats.travelers") },
+    { value: tours ? String(tours.length) : "30+", label: t("home.stats.experiences") },
+    { value: "4.9", label: t("home.stats.rating") },
   ];
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Header */}
-      <section className="bg-gradient-to-r from-primary via-desert to-gold text-white py-16">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Marrakech Discover</h1>
-          <p className="text-xl opacity-90">
-            Your trusted local partner for authentic Moroccan experiences
-          </p>
+      <SEO title={t("about.seoTitle")} description={t("about.seoDescription")} url={`${SITE_URL}/about`} />
+
+      <section className="relative py-16 md:py-20 bg-[#f1742a] overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t("about.title")}</h1>
+            <p className="text-lg text-white/85">{t("about.subtitle")}</p>
+          </div>
         </div>
       </section>
 
-      {/* Our Story */}
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-              <div className="space-y-4 text-lg text-muted-foreground">
-                <p>
-                  Marrakech Discover was founded by a group of passionate locals who wanted to share 
-                  the magic of Morocco with the world. Growing up in Marrakech, we witnessed the 
-                  incredible beauty, rich history, and warm hospitality that makes our city so special.
-                </p>
-                <p>
-                  We noticed that many visitors only experienced the surface of what Marrakech has to 
-                  offer. That's when we decided to create a company that would provide authentic, 
-                  immersive experiences that go beyond the typical tourist trail.
-                </p>
-                <p>
-                  Today, we're proud to have helped thousands of travelers discover the real Morocco – 
-                  from bustling souks and ancient palaces to serene desert landscapes and mountain villages. 
-                  Our mission remains the same: to create unforgettable experiences that connect people 
-                  with the heart and soul of Morocco.
-                </p>
+              <span className="inline-block text-primary font-medium mb-4 tracking-wide uppercase text-sm">{t("about.storyEyebrow")}</span>
+              <h2 className="text-4xl font-bold mb-6">{t("about.storyTitle")}</h2>
+              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                <p>{t("home.aboutP1")}</p>
+                <p>{t("home.aboutP2")}</p>
+                <p>{t("about.storyP3")}</p>
               </div>
             </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden">
-              <img
-                src={moroccanCulture}
-                alt="Moroccan Culture"
-                className="w-full h-full object-cover"
-              />
+            <div className="grid grid-cols-5 gap-4">
+              <img src={youssefGuide} alt={t("home.guideAlt")} loading="lazy" className="col-span-3 h-[420px] md:h-[500px] w-full object-cover rounded-3xl shadow-xl" />
+              <img src={moroccanCulture} alt="" loading="lazy" className="col-span-2 h-[420px] md:h-[500px] w-full object-cover rounded-3xl mt-10" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Values */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-muted-foreground">
-              The principles that guide everything we do
-            </p>
+            <h2 className="text-4xl font-bold mb-4">{t("about.valuesTitle")}</h2>
+            <p className="text-lg text-muted-foreground">{t("about.valuesSubtitle")}</p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
-                    <value.icon className="h-8 w-8" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </CardContent>
-              </Card>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value) => (
+              <div key={value.title} className="bg-card rounded-2xl border border-border/50 p-8 text-center card-hover">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary mb-5">
+                  <value.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Inter, sans-serif" }}>
+                  {value.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">5+</div>
-              <div className="text-muted-foreground">Years of Experience</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">10K+</div>
-              <div className="text-muted-foreground">Happy Travelers</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">50+</div>
-              <div className="text-muted-foreground">Tour Options</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">4.9</div>
-              <div className="text-muted-foreground">Average Rating</div>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-16">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{s.value}</div>
+                <div className="text-muted-foreground">{s.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="gap-2 rounded-full px-8">
+              <Link to="/tours">
+                {t("home.explore")}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="gap-2 rounded-full px-8" onClick={() => openWhatsApp(t("common.whatsappGreeting"))}>
+              <Phone className="h-4 w-4" />
+              {t("home.startPlanning")}
+            </Button>
           </div>
         </div>
       </section>

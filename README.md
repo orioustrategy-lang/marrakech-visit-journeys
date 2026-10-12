@@ -26,6 +26,15 @@ npm i
 npm run dev
 ```
 
+## Admin, bookings & Supabase
+
+The site has an admin at `/admin` for tours, booking requests and contact messages,
+backed by Supabase. See **[ADMIN.md](ADMIN.md)** for setup (database tables, env
+variables, creating your admin login, importing tours).
+
+The public site is available in English and French (switcher in the navbar); UI text
+lives in `src/i18n/en.ts` and `src/i18n/fr.ts`.
+
 **Edit a file directly in GitHub**
 
 - Navigate to the desired file(s).
